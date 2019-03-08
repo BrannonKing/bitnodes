@@ -1,4 +1,3 @@
-*.conf
 *.log
 *.out
 *.pyc
@@ -11,3 +10,5 @@
 geoip/*.mmdb
 geoip/*.txt
 rsync.sh
+
+venv/

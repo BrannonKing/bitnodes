@@ -37,9 +37,10 @@ def new_redis_conn(db=0):
     """
     Returns new instance of Redis connection with the right db selected.
     """
-    socket = os.environ.get('REDIS_SOCKET', "/tmp/redis.sock")
-    password = os.environ.get('REDIS_PASSWORD', None)
-    return redis.StrictRedis(db=db, password=password, unix_socket_path=socket)
+    # socket = os.environ.get('REDIS_SOCKET', "/tmp/redis.sock")
+    # password = os.environ.get('REDIS_PASSWORD', None)
+    # return redis.StrictRedis(db=db, password=password, unix_socket_path=socket)
+    return redis.StrictRedis(db=db, password=None, host='localhost', port=6379)
 
 
 def get_keys(redis_conn, pattern, count=500):
