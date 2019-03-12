@@ -162,7 +162,7 @@ HEIGHT = 478000
 RELAY = 0  # set to 1 to receive all txs
 
 SOCKET_BUFSIZE = 8192
-SOCKET_TIMEOUT = 30
+SOCKET_TIMEOUT = 15
 HEADER_LEN = 24
 
 ONION_PREFIX = "\xFD\x87\xD8\x7E\xEB\x43"  # ipv6 prefix for .onion address
@@ -811,6 +811,9 @@ class Connection(object):
             self.bps.append((len(data) * 8) / (end_t - start_t))
         return data
 
+    def sleep1(self):
+        gevent.sleep(1)
+
     def get_messages(self, length=0, commands=None):
         msgs = []
         data = self.recv(length=length)
@@ -865,7 +868,7 @@ class Connection(object):
             return None
 
         # <<< [addr]..
-        gevent.sleep(1)
+        gevent.sleep(3)
         msgs = self.get_messages(commands=["addr"])
         return msgs
 

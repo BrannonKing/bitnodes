@@ -93,6 +93,8 @@ def enumerate_node(redis_pipe, addr_msgs, now):
                     peers += 1
                     if peers >= CONF['peers_per_node']:
                         return (peers, excluded)
+                else:
+                    print 'filtered by max_age:', age
 
     return (peers, excluded)
 

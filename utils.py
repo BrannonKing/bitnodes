@@ -40,7 +40,8 @@ def new_redis_conn(db=0):
     # socket = os.environ.get('REDIS_SOCKET', "/tmp/redis.sock")
     # password = os.environ.get('REDIS_PASSWORD', None)
     # return redis.StrictRedis(db=db, password=password, unix_socket_path=socket)
-    return redis.StrictRedis(db=db, password=None, host='localhost', port=6379)
+    ret = redis.StrictRedis(db=db, password=None, host='127.0.0.1', port=6379)
+    return ret
 
 
 def get_keys(redis_conn, pattern, count=500):
