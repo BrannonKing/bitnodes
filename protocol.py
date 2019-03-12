@@ -162,7 +162,7 @@ HEIGHT = 478000
 RELAY = 0  # set to 1 to receive all txs
 
 SOCKET_BUFSIZE = 8192
-SOCKET_TIMEOUT = 15
+SOCKET_TIMEOUT = 160
 HEADER_LEN = 24
 
 ONION_PREFIX = "\xFD\x87\xD8\x7E\xEB\x43"  # ipv6 prefix for .onion address
